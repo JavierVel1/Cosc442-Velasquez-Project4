@@ -1,3 +1,4 @@
+package edu.towson.cis.cosc442.project4.coffeemaker; 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -156,8 +157,30 @@ public class CoffeeMakerTest {
         coffeeMaker.addRecipe(latte);
 
         //assert
-        assertEquals(0, coffeeMaker.makeCoffee(latte, 5)); 
-        
+        assertEquals(0, coffeeMaker.makeCoffee(latte, 5));  
+    }
+
+    @Test
+    void testmakeCoffeeValid1(){
+        //Arrange
+        CoffeeMaker coffeeMaker = new CoffeeMaker();
+        Recipe latte = new Recipe();
+        //act
+        latte.setName("Latte");
+        latte.setPrice(5);
+        coffeeMaker.addRecipe(latte);
+        latte.setAmtChocolate(8);
+        latte.setAmtCoffee(2);
+        latte.setAmtMilk(4);
+        latte.setAmtSugar(6);
+        int results = coffeeMaker.makeCoffee(latte, 10); 
+
+        //assert
+        assertEquals(5, results); 
+        assertEquals(7, coffeeMaker.checkInventory().getChocolate());  
+        assertEquals(17, coffeeMaker.checkInventory().getCoffee()); 
+        assertEquals(11, coffeeMaker.checkInventory().getMilk()); 
+        assertEquals(9, coffeeMaker.checkInventory().getSugar()); 
     }
 
     @Test
