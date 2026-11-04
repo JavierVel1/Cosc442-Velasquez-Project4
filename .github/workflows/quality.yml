@@ -10,6 +10,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: CoffeeMaker/CoffeeMaker
 
     steps:
       - name: Check out repository
@@ -21,6 +24,7 @@ jobs:
           distribution: temurin
           java-version: '17'
           cache: maven
+          cache-dependency-path: CoffeeMaker/CoffeeMaker/pom.xml
 
       - name: Run JUnit regression tests
         run: ./mvnw test
