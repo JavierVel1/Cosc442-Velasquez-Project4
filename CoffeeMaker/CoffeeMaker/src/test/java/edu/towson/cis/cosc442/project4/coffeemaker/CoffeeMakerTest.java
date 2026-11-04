@@ -71,7 +71,7 @@ public class CoffeeMakerTest {
         assertFalse(coffeeMaker.addRecipe(latte5)); 
 
     }
-
+   
     @Test
     void testCheckInventory() {
         //Arrange
