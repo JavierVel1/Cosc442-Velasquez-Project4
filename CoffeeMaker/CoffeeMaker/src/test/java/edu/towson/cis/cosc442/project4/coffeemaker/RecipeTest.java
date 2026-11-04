@@ -1,8 +1,11 @@
+package edu.towson.cis.cosc442.project4.coffeemaker; 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import edu.towson.cis.cosc442.project4.coffeemaker.Recipe;
 
@@ -42,24 +45,17 @@ public class RecipeTest {
         assertFalse(latte.equals(latte2));
     }
 
-    @Test
-    void testSetAmtChocolateValid() {
+    @ParameterizedTest 
+    @CsvSource({
+        "20, 20", "1, 1", "-1, 0"  
+    })
+    void testSetAmtChocolateValid(int amount, int expected) {
         //arrange
         Recipe latte = new Recipe();
         //act
-        latte.setAmtChocolate(20);
+        latte.setAmtChocolate(amount);
         //assert
-        assertEquals(20, latte.getAmtChocolate());
-    }
-
-    @Test
-    void testSetAmtChocolateInvalid() {
-        //arrange
-        Recipe latte = new Recipe();
-        //act
-        latte.setAmtChocolate(-1);
-        //assert
-        assertEquals(0, latte.getAmtChocolate());
+        assertEquals(expected, latte.getAmtChocolate());
     }
 
     @Test
@@ -131,7 +127,7 @@ public class RecipeTest {
         //assert
         assertEquals("Latte", latte.getName());
     }
-    
+
     @Test
     void testSetPriceValid() {
         //arrange
@@ -150,5 +146,16 @@ public class RecipeTest {
         latte.setPrice(-1);
         //assert
         assertEquals(0, latte.getPrice());
+    }
+
+    @Test
+    void testToString() {
+        //arrange
+        Recipe latte = new Recipe();
+        //act
+        latte.setName("latte");
+        String result = latte.toString(); 
+        //assert
+        assertEquals("latte", result);
     }
 }
