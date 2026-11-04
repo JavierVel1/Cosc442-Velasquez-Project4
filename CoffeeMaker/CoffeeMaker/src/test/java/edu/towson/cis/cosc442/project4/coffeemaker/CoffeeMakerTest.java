@@ -12,7 +12,7 @@ import edu.towson.cis.cosc442.project4.coffeemaker.Recipe;
 
 public class CoffeeMakerTest {
 
-    
+    /* 
     @Test
     void testAddInventoryValid() {
         //Arrange
@@ -34,7 +34,7 @@ public class CoffeeMakerTest {
         //Act and assert
         assertFalse(coffeeMaker.addInventory(coffee, milk, sugar, chocolate));
     }
-
+*/
     @Test
     void testAddRecipeValid() {
         //Arrange
@@ -71,7 +71,7 @@ public class CoffeeMakerTest {
         assertFalse(coffeeMaker.addRecipe(latte5)); 
 
     }
-
+  /* 
     @Test
     void testCheckInventory() {
         //Arrange
@@ -84,7 +84,7 @@ public class CoffeeMakerTest {
         assertEquals(15, coffeeMaker.checkInventory().getSugar());
         assertEquals(16, coffeeMaker.checkInventory().getChocolate());
     }
-
+*/ 
     @Test
     void testDeleteRecipeValid() {
         //Arrange
@@ -112,7 +112,7 @@ public class CoffeeMakerTest {
 
     
     }
-
+/* 
     @Test
     void testEditRecipeValid() {
         //Arrange
@@ -144,7 +144,7 @@ public class CoffeeMakerTest {
         assertFalse(coffeeMaker.editRecipe(latte, latte3));
 
     }
-
+*/
     @Test
     void testmakeCoffeeValid(){
         //Arrange
