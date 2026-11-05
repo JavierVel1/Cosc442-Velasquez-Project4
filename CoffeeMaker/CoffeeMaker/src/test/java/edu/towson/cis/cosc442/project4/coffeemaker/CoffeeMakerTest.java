@@ -18,14 +18,19 @@ public class CoffeeMakerTest {
         //Arrange
         CoffeeMaker coffeeMaker = new CoffeeMaker();
         //Act and assert
-        assertTrue(coffeeMaker.addInventory(1, 01, 0, 01));
+        assertTrue(coffeeMaker.addInventory(1, 01, 1, 01));
+        assertEquals(16, coffeeMaker.checkInventory().getChocolate());  
+        assertEquals(16, coffeeMaker.checkInventory().getCoffee()); 
+        assertEquals(16, coffeeMaker.checkInventory().getMilk()); 
+        assertEquals(16, coffeeMaker.checkInventory().getSugar()); 
+
     }
 
     @ParameterizedTest 
     @CsvSource({
         "-1, 1, 1, 1",
         "1, -1, 1, 1",
-        "1, 1, 5, 1",
+        "1, 1, -1, 1",
         "1, 1, 1, -2"
     })
     void testAddInventoryInvalid(int coffee, int milk, int sugar, int chocolate) {
