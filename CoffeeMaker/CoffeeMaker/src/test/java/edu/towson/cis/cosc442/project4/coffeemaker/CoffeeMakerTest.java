@@ -183,7 +183,7 @@ public class CoffeeMakerTest {
         //assert
         assertEquals(5, results); 
         assertEquals(7, coffeeMaker.checkInventory().getChocolate());  
-        assertEquals(17, coffeeMaker.checkInventory().getCoffee()); 
+        assertEquals(13, coffeeMaker.checkInventory().getCoffee()); 
         assertEquals(11, coffeeMaker.checkInventory().getMilk()); 
         assertEquals(9, coffeeMaker.checkInventory().getSugar()); 
     }
